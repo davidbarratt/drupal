@@ -20,10 +20,3 @@ RUN { \
 && a2enconf low-memory
 
 RUN a2enmod env
-
-RUN mkdir -p /var/www/tmp \
-  && mkdir -p /var/www/html/sites/default/files
-
-# Set the permissions.
-RUN chown -R www-data:www-data /var/www/html/sites/default/files \
-  && chown -R www-data:www-data /var/www/tmp
