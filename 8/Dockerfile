@@ -1,4 +1,4 @@
-FROM drupal:8.4.5-apache
+FROM drupal:8-apache
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
