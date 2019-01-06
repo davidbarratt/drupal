@@ -19,4 +19,4 @@ RUN { \
 	} | tee "$APACHE_CONFDIR/conf-available/low-memory.conf" \
 && a2enconf low-memory
 
-RUN a2enmod env
+RUN a2enmod env headers
