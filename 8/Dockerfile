@@ -6,6 +6,22 @@ RUN apt-get update && apt-get install -y \
     imagemagick \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
+	# install the PHP extensions we need
+	RUN set -ex \
+		&& buildDeps=' \
+			libjpeg62-turbo-dev \
+			libpng12-dev \
+			libpq-dev \
+	    libfreetype6-dev \
+		' \
+		&& apt-get update && apt-get install -y --no-install-recommends $buildDeps && rm -rf /var/lib/apt/lists/* \
+		&& docker-php-ext-configure gd \
+			--with-jpeg-dir=/usr \
+			--with-png-dir=/usr \
+	    --with-freetype-dir=/usr \
+		&& docker-php-ext-install -j "$(nproc)" gd exif \
+		&& apt-get purge -y --auto-remove $buildDeps
+
 # Set the max upload size.
 RUN { \
 		echo 'upload_max_filesize = 32M'; \
