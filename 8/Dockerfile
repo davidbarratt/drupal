@@ -11,6 +11,11 @@ RUN apt-get update && apt-get install -y \
 		sqlite3 \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
+# Install uploadprogress
+RUN pecl channel-update pecl.php.net \
+	&& pecl install uploadprogress \
+	&& docker-php-ext-enable uploadprogress
+
 # Set the max upload size.
 RUN { \
 		echo 'upload_max_filesize = 32M'; \
