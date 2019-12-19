@@ -1,4 +1,4 @@
-FROM drupal:8-apache
+FROM drupal:8.8
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
@@ -28,7 +28,7 @@ RUN { \
 RUN a2enmod env headers
 
 # Add Composer
-COPY --from=composer:1.7 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.9 /usr/bin/composer /usr/bin/composer
 
 # Remove the default Drupal site.
 RUN rm -rf /var/www/html
