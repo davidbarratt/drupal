@@ -5,7 +5,7 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 # Dependencies
 RUN apt-get update && apt-get install -y \
 		mysql-client \
-    imagemagick \
+    	imagemagick \
 		unzip \
 		git \
 		sqlite3 \
