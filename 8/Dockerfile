@@ -1,4 +1,4 @@
-FROM drupal:8.8.1
+FROM drupal:8.8
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
