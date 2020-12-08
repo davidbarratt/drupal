@@ -1,14 +1,11 @@
-FROM drupal:8.8
+FROM drupal:8
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
-		mysql-client \
     	imagemagick \
 		unzip \
-		git \
-		sqlite3 \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Set the max upload size.
