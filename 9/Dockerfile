@@ -9,11 +9,11 @@ RUN apt-get update && apt-get install -y \
 # Extensions
 RUN pecl install \
 		APCu-5.1.19 \
-		uploadprogress-1.1.3 \
+		# uploadprogress-1.1.3 \
 	; \
 	docker-php-ext-enable \
 		apcu \
-		uploadprogress \
+		# uploadprogress \
 	;
 
 # Set the max upload size.
