@@ -1,11 +1,8 @@
 FROM drupal:8
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
 # Dependencies
 RUN apt-get update && apt-get install -y \
     	imagemagick \
-		unzip \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Set the max upload size.
@@ -23,9 +20,3 @@ RUN { \
 
 # Enable Apache modules
 RUN a2enmod env headers
-
-# Add Composer
-COPY --from=composer:1.9 /usr/bin/composer /usr/bin/composer
-
-# Remove the default Drupal site.
-RUN rm -rf /var/www/html
