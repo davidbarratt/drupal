@@ -2,8 +2,19 @@ FROM drupal:8
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
+		unzip \
     	imagemagick \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
+
+# Extensions
+RUN pecl install \
+		APCu-5.1.19 \
+		uploadprogress-1.1.3 \
+	; \
+	docker-php-ext-enable \
+		apcu \
+		uploadprogress \
+	;
 
 # Set the max upload size.
 RUN { \
