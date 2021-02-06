@@ -16,6 +16,11 @@ RUN pecl install \
 		uploadprogress \
 	;
 
+# Set OpenSSL config
+RUN { \
+		echo 'openssl.capath = /etc/ssl/certs'; \
+	} > /usr/local/etc/php/conf.d/open-ssl.ini
+
 # Set the max upload size.
 RUN { \
 		echo 'upload_max_filesize = 32M'; \
