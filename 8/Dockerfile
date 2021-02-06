@@ -18,8 +18,9 @@ RUN pecl install \
 
 # Set OpenSSL config
 RUN { \
-		echo 'openssl.capath = /etc/ssl/certs'; \
-	} > /usr/local/etc/php/conf.d/open-ssl.ini
+		echo 'openssl.cafile = /etc/ssl/certs/ca-certificates.crt'; \
+		echo 'openssl.capath = /etc/ssl/certs/'; \
+	} > /usr/local/etc/php/conf.d/openssl.ini
 
 # Set the max upload size.
 RUN { \
