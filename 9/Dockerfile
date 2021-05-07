@@ -31,4 +31,4 @@ RUN { \
 	&& a2enconf low-memory
 
 # Enable Apache modules
-RUN a2enmod env headers
+RUN a2enmod headers
