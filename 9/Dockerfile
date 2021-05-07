@@ -2,7 +2,6 @@ FROM drupal:9
 
 # Dependencies
 RUN apt-get update && apt-get install -y \
-		git \
 		unzip \
     	imagemagick \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
